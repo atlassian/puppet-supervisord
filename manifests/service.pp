@@ -6,7 +6,7 @@ class supervisord::service inherits supervisord  {
   if $::supervisord::service_manage {
     if $::supervisord::init_type == 'systemd' {
       exec { 'refresh supervisord unit file on systemd':
-        command     => '/bin/systemctl daemon-reload'
+        command     => '/bin/systemctl daemon-reload',
         refreshonly => true,
       }
     }
