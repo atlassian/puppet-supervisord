@@ -32,7 +32,7 @@ class supervisord::config inherits supervisord {
     file { $supervisord::init_script:
       ensure  => present,
       owner   => 'root',
-      mode    => '0755',
+      mode    => '0644',
       content => template($supervisord::init_script_template),
       notify  => Class['supervisord::service'],
     }
@@ -41,7 +41,7 @@ class supervisord::config inherits supervisord {
       file { $supervisord::init_defaults:
         ensure  => present,
         owner   => 'root',
-        mode    => '0755',
+        mode    => '0644',
         content => template($supervisord::init_defaults_template),
         notify  => Class['supervisord::service'],
       }
